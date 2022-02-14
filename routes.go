@@ -4,7 +4,7 @@ import "github.com/gin-gonic/gin"
 
 func HelloWorld(c *gin.Context) {
 
-	c.JSON(200, "Hello welcome to my web server using fresh")
+	c.JSON(200, "Hello welcome to my web server using fresh on port: 5000")
 }
 
 func HelloByName(c *gin.Context) {
