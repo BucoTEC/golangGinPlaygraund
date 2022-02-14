@@ -1,0 +1,2 @@
+# ginTEST
+.\helper.go:8:12: assignment mismatch: 1 variable but fmt.Printf returns 2 values
