@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/joho/godotenv"
+)
 
 func SayHello(name string) string {
 
@@ -8,3 +14,13 @@ func SayHello(name string) string {
 
 	return helloThere
 }
+func GoDotEnvVariable(key string) string {
+
+	err := godotenv.Load(".env")
+  
+	if err != nil {
+	  log.Fatalf("Error loading .env file")
+	}
+  
+	return os.Getenv(key)
+  }

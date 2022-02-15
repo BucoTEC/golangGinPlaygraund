@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"ginTEST/models"
@@ -8,9 +9,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func HelloWorld(c *gin.Context) {
 
-	c.JSON(200, "Hello welcome to my web server using fresh on port: 5000")
+
+
+func HelloWorld(c *gin.Context) {
+	port := GoDotEnvVariable("PORT")
+	greet := fmt.Sprintf("Hello welcome to my web server using fresh on port: %v", port)
+	c.JSON(200, greet  )
 }
 
 func HelloByName(c *gin.Context) {
@@ -24,5 +29,9 @@ func HelloByName(c *gin.Context) {
 func CreateUser(c *gin.Context){
 	var newUser models.User
 	c.Bind(&newUser)
-	c.JSON(http.StatusOK, newUser)
+
+	c.JSON(http.StatusOK, gin.H{
+		"message":"newMesage",
+		"NewUser": newUser,
+	})
 }
