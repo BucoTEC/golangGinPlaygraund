@@ -7,6 +7,7 @@ func main() {
 
 	server.GET("/", HelloWorld)
 	server.GET("/:name", HelloByName)
+	server.POST("/", CreateUser)
 
 
 	server.Run(":5000")

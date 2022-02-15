@@ -1,6 +1,12 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"ginTEST/models"
+
+	"github.com/gin-gonic/gin"
+)
 
 func HelloWorld(c *gin.Context) {
 
@@ -12,4 +18,11 @@ func HelloByName(c *gin.Context) {
 	res := SayHello(name)
 
 	c.JSON(200, res )
+}
+
+
+func CreateUser(c *gin.Context){
+	var newUser models.User
+	c.Bind(&newUser)
+	c.JSON(http.StatusOK, newUser)
 }
